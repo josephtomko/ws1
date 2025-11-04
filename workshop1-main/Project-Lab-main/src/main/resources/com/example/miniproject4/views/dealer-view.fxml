@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.Group?>
+
+<HBox alignment="CENTER" prefHeight="500.0" prefWidth="650.0"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.miniproject4.controllers.PhoneController"
+      styleClass="root">
+
+    <children>
+        <!-- Left Side: Branding Section -->
+        <VBox alignment="CENTER" prefHeight="500.0" prefWidth="325.0" spacing="25.0"
+              style="-fx-background-color: black;"
+              styleClass="branding-section">
+            <children>
+                <!-- App Title -->
+                <VBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <Text fill="WHITE" text="Phone Store" textAlignment="CENTER">
+                            <font>
+                                <Font name="Arial Bold" size="32.0" />
+                            </font>
+                        </Text>
+                        <Text fill="WHITE" text="Management System" textAlignment="CENTER">
+                            <font>
+                                <Font name="Arial Bold" size="28.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </VBox>
+
+                <!-- Cover Photo inside black rectangle frame -->
+                <StackPane prefHeight="120.0" prefWidth="220.0" alignment="CENTER">
+                    <children>
+
+                        
+                         <ImageView fitHeight="110.0" fitWidth="200.0" preserveRatio="true">
+                             <image>
+                                 <Image url="@../images/cover.png" />
+                             </image>
+                         </ImageView>
+                    </children>
+                </StackPane>
+
+                <!-- Tagline -->
+                <Text fill="WHITE" text="Manage models, storage and price" textAlignment="CENTER"
+                      wrappingWidth="250.0" opacity="0.9">
+                    <font>
+                        <Font name="Arial Italic" size="16.0" />
+                    </font>
+                </Text>
+            </children>
+            <padding>
+                <Insets bottom="30.0" left="20.0" right="20.0" top="30.0"/>
+            </padding>
+        </VBox>
+
+        <!-- Right Side: Navigation Section -->
+        <VBox alignment="CENTER" spacing="30.0" prefWidth="325.0"
+              style="-fx-background-color: white;">
+            <children>
+                <!-- Welcome Header -->
+                <VBox alignment="CENTER" spacing="8.0">
+                    <children>
+                        <Label text="Welcome" textFill="#333333">
+                            <font>
+                                <Font name="Arial Bold" size="26.0" />
+                            </font>
+                        </Label>
+                        <Text text="Select a module to get started" textAlignment="CENTER"
+                              fill="#666666" wrappingWidth="250.0">
+                            <font>
+                                <Font name="Arial" size="14.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </VBox>
+
+                <Separator prefWidth="250.0" />
+
+                <!-- Navigation Buttons -->
+                <VBox spacing="15.0" alignment="CENTER">
+                    <children>
+                        <!-- Phones Management Button -->
+                        <Button fx:id="phonesBtn" mnemonicParsing="false"
+                                onAction="#openPhonesManagement"
+                                prefHeight="50.0" prefWidth="260.0"
+                                style="-fx-background-color: black; -fx-background-radius: 8px; -fx-cursor: hand;"
+                                styleClass="nav-button"
+                                text="📱 Phone Management" textFill="WHITE">
+                            <font>
+                                <Font name="Arial Bold" size="16.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+            <padding>
+                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/>
+            </padding>
+        </VBox>
+    </children>
+</HBox>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox fillHeight="false" spacing="30.0"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.miniproject4.controllers.PhonesController"
+      styleClass="root">
+
+    <children>
+        <!-- Left Side: Form Section -->
+        <VBox prefHeight="507.0" prefWidth="288.0" spacing="10.0" styleClass="form-section">
+            <children>
+                <!-- Form Grid -->
+                <GridPane prefHeight="350.0" prefWidth="288.0" hgap="10.0" vgap="8.0">
+                    <columnConstraints>
+                        <ColumnConstraints prefWidth="110.0" halignment="RIGHT"/>
+                        <ColumnConstraints prefWidth="184.0" hgrow="ALWAYS"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints prefHeight="46.0" />
+                        <RowConstraints prefHeight="130.0" />
+                        <RowConstraints prefHeight="30.0" />
+                        <RowConstraints prefHeight="30.0" />
+                        <RowConstraints prefHeight="30.0" />
+                    </rowConstraints>
+
+                    <children>
+                        <!-- Title -->
+                        <Label text="Phone Management" alignment="CENTER" prefWidth="288.0"
+                               textFill="BLACK" GridPane.columnSpan="2" GridPane.rowIndex="0">
+                            <font>
+                                <Font name="Tahoma Bold" size="28.0" />
+                            </font>
+                        </Label>
+
+                        <!-- Phone Image -->
+                        <ImageView fitHeight="100.0" fitWidth="233.0" preserveRatio="true"
+                                   GridPane.columnSpan="2" GridPane.rowIndex="1"
+                                   GridPane.halignment="CENTER">
+                            <image>
+                                <Image url="@../images/cover2.png" />
+                            </image>
+                        </ImageView>
+
+                        <!-- Model Field -->
+                        <Label text="Model:" GridPane.rowIndex="2">
+                            <font><Font name="Arial" size="14.0" /></font>
+                        </Label>
+                        <TextField fx:id="modelFld" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <tooltip>
+                                <Tooltip text="Enter the phone model" />
+                            </tooltip>
+                        </TextField>
+
+                        <!-- Storage Field -->
+                        <Label text="Storage (GB):" GridPane.rowIndex="3">
+                            <font><Font name="Arial" size="14.0" /></font>
+                        </Label>
+                        <TextField fx:id="storageFld" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                            <tooltip>
+                                <Tooltip text="Enter the storage capacity in GB" />
+                            </tooltip>
+                        </TextField>
+
+                        <!-- Price Field -->
+                        <Label text="Price ($):" GridPane.rowIndex="4">
+                            <font><Font name="Arial" size="14.0" /></font>
+                        </Label>
+                        <TextField fx:id="priceFld" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                            <tooltip>
+                                <Tooltip text="Enter the price in dollars" />
+                            </tooltip>
+                        </TextField>
+                    </children>
+
+                    <VBox.margin>
+                        <Insets bottom="15.0" />
+                    </VBox.margin>
+                </GridPane>
+
+                <!-- Action Buttons -->
+                <HBox alignment="CENTER" spacing="15.0">
+                    <children>
+                        <Button fx:id="addBtn" text="Add" onAction="#addPhone"
+                                styleClass="action-button"
+                                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand;"
+                                prefHeight="35.0" prefWidth="85.0">
+                            <font><Font name="Arial Bold" size="12.0" /></font>
+                            <tooltip>
+                                <Tooltip text="Add a new phone to inventory" />
+                            </tooltip>
+                        </Button>
+
+                        <Button fx:id="updateBtn" text="Update" onAction="#updatePhone"
+                                styleClass="action-button"
+                                style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-cursor: hand;"
+                                prefHeight="35.0" prefWidth="85.0">
+                            <font><Font name="Arial Bold" size="12.0" /></font>
+                            <tooltip>
+                                <Tooltip text="Update the selected phone" />
+                            </tooltip>
+                        </Button>
+
+                        <Button fx:id="deleteBtn" text="Delete" onAction="#deletePhone"
+                                styleClass="action-button"
+                                style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-cursor: hand;"
+                                prefHeight="35.0" prefWidth="85.0">
+                            <font><Font name="Arial Bold" size="12.0" /></font>
+                            <tooltip>
+                                <Tooltip text="Delete the selected phone" />
+                            </tooltip>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                    </VBox.margin>
+                </HBox>
+
+                <!-- Error/Success Message Display -->
+                <Text fx:id="errorMsg" fill="RED" wrappingWidth="280.0"
+                      styleClass="message-text" textAlignment="CENTER">
+                    <font><Font name="Arial Bold" size="11.0" /></font>
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </Text>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </VBox>
+
+        <!-- Right Side: Table Section -->
+        <VBox spacing="10.0" styleClass="table-section">
+            <children>
+                <!-- Table Header -->
+                <Label text="Phone Inventory" textFill="#333333">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+
+                <!-- Phones Table -->
+                <TableView fx:id="phonesTable" prefHeight="506.0" prefWidth="800.0"
+                           styleClass="phones-table" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="modelCol" prefWidth="180.0" text="Model"
+                                     resizable="true" sortable="true"/>
+                        <TableColumn fx:id="storageCol" prefWidth="120.0" text="Storage (GB)"
+                                     resizable="true" sortable="true"/>
+                        <TableColumn fx:id="priceCol" prefWidth="120.0" text="Price ($)"
+                                     resizable="true" sortable="true"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+            </children>
+        </VBox>
+    </children>
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+</HBox>
